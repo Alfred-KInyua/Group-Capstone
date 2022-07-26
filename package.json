@@ -7,12 +7,14 @@
     "test": "jest",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "type":"module"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Alfred-KInyua/Group-Capstone.git"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
