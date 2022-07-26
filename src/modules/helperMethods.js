@@ -14,5 +14,5 @@ const artCounter = async () => {
 };
 
 export {
-  likeCount, artCounter,
+  likeCount, artCounter
 };
