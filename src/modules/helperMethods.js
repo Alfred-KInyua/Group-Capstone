@@ -1,7 +1,6 @@
 import { updateLikes } from './likes.js';
 import main from './content.js';
 
-
 const likeCount = async (Id, cont) => {
   const count = await updateLikes(Id);
   cont.innerHTML = `${count} likes`;
@@ -14,5 +13,5 @@ const artCounter = async () => {
 };
 
 export {
-  likeCount, artCounter
+  likeCount, artCounter,
 };
