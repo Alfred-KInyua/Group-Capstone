@@ -1,8 +1,8 @@
-import { network_request, appID } from './likes.js';
+import { networkRequest, appID } from './likes.js';
 
 const postComment = async (id, name, body) => {
   const response = await fetch(
-    `${network_request}${appID}/comments`, {
+    `${networkRequest}${appID}/comments`, {
       method: 'POST',
       body: JSON.stringify({
         item_id: id,
@@ -18,7 +18,7 @@ const postComment = async (id, name, body) => {
 };
 
 const getComments = async (id) => {
-  const commentArr = await fetch(`${network_request}${appID}/comments?item_id=${id}`);
+  const commentArr = await fetch(`${networkRequest}${appID}/comments?item_id=${id}`);
   const comments = commentArr.json();
   return comments;
 };

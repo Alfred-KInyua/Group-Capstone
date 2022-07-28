@@ -1,10 +1,10 @@
-const network_request = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
+const networkRequest = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 
 const appID = 'Km2IRmmIjbL7vNKDRpvP';
 
 const postLike = async (id) => {
   const data = await fetch(
-    `${network_request}${appID}/likes`, {
+    `${networkRequest}${appID}/likes`, {
       method: 'POST',
       body: JSON.stringify({
         item_id: id,
@@ -18,15 +18,15 @@ const postLike = async (id) => {
 };
 
 const getLikes = async () => {
-  const likes_data = await fetch(`${network_request}${appID}/likes`);
-  const likesArray = await likes_data.json();
+  const likesData = await fetch(`${networkRequest}${appID}/likes`);
+  const likesArray = await likesData.json();
   return likesArray;
 };
 
 const updateLikes = async (id) => {
-  const change_likes_data = await getLikes();
+  const changeLikesData = await getLikes();
   let results = 0;
-  change_likes_data.forEach((e) => {
+  changeLikesData.forEach((e) => {
     if (e.item_id.toString() === id.toString()) {
       results = e.likes;
     }
@@ -36,5 +36,5 @@ const updateLikes = async (id) => {
 };
 
 export {
-  getLikes, postLike, updateLikes, network_request, appID,
+  getLikes, postLike, updateLikes, networkRequest, appID,
 };
