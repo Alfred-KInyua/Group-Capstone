@@ -1,11 +1,10 @@
-const api_endpoint = 'https://api.tvmaze.com/';
+const apiEndpoint = 'https://api.tvmaze.com/';
 
 const main = async () => {
-    const fetch_data = await fetch(`${api_endpoint}shows`);
-    const result = await fetch_data.json();
+  const fetchData = await fetch(`${apiEndpoint}shows`);
+  const result = await fetchData.json();
 
-    return result;
-}
+  return result;
+};
 
 export default main;
-

@@ -1,10 +1,10 @@
-const involvement_api_url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
+const networkRequest = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 
-const appId = 'meucUCU2jpjkDcWN5JDX';
+const appID = 'Km2IRmmIjbL7vNKDRpvP';
 
-const postLikes = async (id) => {
-  const response = await fetch(
-    `${involvement_api_url}${appId}/likes`, {
+const postLike = async (id) => {
+  const data = await fetch(
+    `${networkRequest}${appID}/likes`, {
       method: 'POST',
       body: JSON.stringify({
         item_id: id,
@@ -14,27 +14,27 @@ const postLikes = async (id) => {
       },
     },
   );
-  return response;
+  return data;
 };
 
 const getLikes = async () => {
-  const arr_of_likes_data = await fetch(`${involvement_api_url}${appId}/likes`);
-  const arr_of_likes = await arr_of_likes_data.json();
-  return arr_of_likes;
+  const likesData = await fetch(`${networkRequest}${appID}/likes`);
+  const likesArray = await likesData.json();
+  return likesArray;
 };
 
 const updateLikes = async (id) => {
-  const stored_likes_data = await getLikes();
-  let result = 0;
-  stored_likes_data.forEach((e) => {
+  const changeLikesData = await getLikes();
+  let results = 0;
+  changeLikesData.forEach((e) => {
     if (e.item_id.toString() === id.toString()) {
-      result = e.likes;
+      results = e.likes;
     }
   });
 
-  return result;
+  return results;
 };
 
 export {
-  getLikes, postLikes, updateLikes, involvement_api_url, appId
+  getLikes, postLike, updateLikes, networkRequest, appID,
 };

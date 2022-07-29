@@ -1,9 +1,10 @@
 import main from './content.js';
-import { renderImage } from './createImage.js';
-import { postLikes } from './likes.js';
-import { likeCount } from './helperMethods.js';
+import { renderImage } from './buildImage.js';
+import popModal from './popModal.js';
+import { postLike } from './likes.js';
+import { likeCount } from './helpers.js';
 
-const grid = document.querySelector('.grid__container-movies');
+const grid = document.querySelector('.grid__container');
 const displayModal = document.querySelector('.modal-content');
 const header = document.querySelector('.header');
 const footer = document.querySelector('.footer');
@@ -13,7 +14,7 @@ const renderCards = async () => {
   const dataList = await main();
   dataList.forEach((el) => {
     const card = document.createElement('div');
-    card.classList.add('grid-item');
+    card.classList.add('grid__container-cards');
 
     renderImage(el.image.medium, card);
 
@@ -33,13 +34,23 @@ const renderCards = async () => {
     likeCount(el.id, likeCounter);
 
     likeIcon.addEventListener('click', async () => {
-      await postLikes(el.id);
+      await postLike(el.id);
       await likeCount(el.id, likeCounter);
     });
 
     nameLike.append(showName, likeIcon, likeCounter);
 
-    
+    const commentBtn = document.createElement('button');
+    commentBtn.classList.add('comment-btn');
+    commentBtn.innerHTML = 'comment';
+    commentBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      popModal(el);
+      displayModal.style.display = 'block';
+      grid.style.display = 'none';
+      header.style.display = 'none';
+      footer.style.display = 'none';
+    });
     card.append(nameLike, commentBtn);
     grid.append(card);
   });
