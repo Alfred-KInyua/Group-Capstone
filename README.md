@@ -13,9 +13,9 @@ TVMaze Movies cards
 - [TVMazeAPI](https://api.tvmaze.com/search/shows?q=movies
 - [InvolvementAPI](https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270)
 
-## Live Demo
+## zoom video recording on Group-Capstone Project 
 
-A live version of the website can be seen [coming soon](/)
+Zoom video from developers [Click here](https://drive.google.com/file/d/1AfqGhVt-LWUWS7DerRoneQFkCMqVmbuW/view?usp=sharing)
 
 ## Getting Started
 
